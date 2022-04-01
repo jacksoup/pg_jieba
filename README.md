@@ -84,7 +84,6 @@ HOW TO USE & EXAMPLE
 #### General
   ```sh
   jieba=# create extension pg_jieba;
-  CREATE EXTENSION
 
   jieba=# select * from to_tsquery('jiebacfg', '是拖拉机学院手扶拖拉机专业的。不用多久，我就会升职加薪，当上CEO，走上人生巅峰。');
                                           to_tsquery
@@ -250,3 +249,16 @@ docker exec -ti testjieba psql -U test testdb
 [CppJieba]:https://github.com/yanyiwu/cppjieba
 [jieba]:https://github.com/fxsjy/jieba
 [docker file]:https://cloud.docker.com/repository/docker/ssfdust/psql_jieba_swsc/general
+
+
+# 个人安装记录
+```
+git clone https://github.com/jaiminpan/pg_jieba
+cd pg_jieba
+git submodule update --init --recursive
+PG_CONFIG=/Applications/Postgres.app/Contents/Versions/14/bin/pg_config
+mkdir build
+cd build
+cmake -DCMAKE_PREFIX_PATH=/Applications/Postgres.app/Contents/Versions/14/
+make && make install
+```
